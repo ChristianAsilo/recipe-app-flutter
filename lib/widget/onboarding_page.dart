@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipe_app_flutter/utils/app_theme.dart';
 import 'package:recipe_app_flutter/utils/spacing.dart';
 import 'package:recipe_app_flutter/utils/string_constants.dart';
+import 'package:recipe_app_flutter/widget/recipe_overview_page.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
@@ -23,25 +24,25 @@ class OnBoardingPage extends StatelessWidget {
             Expanded(
               child: Column(
                 children: [
-                  const VerticalSpace(height: 30),
+                  const VerticalSpace(height: 30.0),
                   Text(
                     welcomeLabel,
                     textAlign: TextAlign.center,
                     style: RecipeAppTheme.darkTextTheme.titleLarge,
                   ),
-                  const VerticalSpace(height: 410),
+                  const VerticalSpace(height: 410.0),
                   Text(
                     detailsLabel,
                     textAlign: TextAlign.center,
                     style: RecipeAppTheme.darkTextTheme.displayMedium,
                   ),
-                  const VerticalSpace(height: 20),
+                  const VerticalSpace(height: 20.0),
                   Text(
                     descriptionLabel,
                     textAlign: TextAlign.center,
                     style: RecipeAppTheme.darkTextTheme.displaySmall,
                   ),
-                  const VerticalSpace(height: 30),
+                  const VerticalSpace(height: 30.0),
 
                   //TODO: convert to reusable ElevatedButton later
                   ElevatedButton(
@@ -49,18 +50,17 @@ class OnBoardingPage extends StatelessWidget {
                       backgroundColor: const MaterialStatePropertyAll(Color.fromRGBO(88, 47, 251, 1)),
                       shape: MaterialStatePropertyAll(
                         RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
                       ),
                       fixedSize: const MaterialStatePropertyAll(
                         Size(350, 50),
                       ),
                     ),
-
-                    //TODO: add function later
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushReplacement(
+                        context, MaterialPageRoute(builder: (_) => const RecipeOverViewPage())),
                     child: Text(getStartedLabel, style: RecipeAppTheme.darkTextTheme.titleMedium),
-                  )
+                  ),
                 ],
               ),
             ),

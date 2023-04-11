@@ -45,4 +45,20 @@ class RecipeAppTheme {
       color: Colors.white,
     ),
   );
+
+  static TextTheme lightTextTheme = TextTheme(
+    titleMedium: GoogleFonts.inter(
+      color: const Color.fromRGBO(88, 47, 251, 1),
+      fontSize: 30,
+      fontWeight: FontWeight.w500,
+    ),
+    titleLarge: GoogleFonts.inter(
+      fontSize: 25,
+      fontWeight: FontWeight.bold,
+    ),
+    titleSmall: GoogleFonts.inter(
+      fontSize: 30,
+      fontWeight: FontWeight.w400,
+    ),
+  );
 }
