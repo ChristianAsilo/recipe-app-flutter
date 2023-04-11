@@ -30,7 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-   # architecture
+
+  # fonts
+  google_fonts: ^4.0.3
+  # architecture
   async_redux: ^18.0.0
   dio: ^5.0.2
 
@@ -67,6 +70,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/onboarding/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
