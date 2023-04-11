@@ -1,19 +1,23 @@
+import 'package:async_redux/async_redux.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe_app_flutter/api/model/api_service.dart';
+import 'package:recipe_app_flutter/state/app_state.dart';
 import 'package:recipe_app_flutter/widget/onboarding_page.dart';
 
-void main() {
-  runApp(const RecipeApp());
+Future<void> main() async {
+  final store = Store<AppState>(
+    initialState: AppState(),
+    actionObservers: kReleaseMode ? null : [ConsoleActionObserver<AppState>()],
+  );
+  final meals = await ApiService().recipeApi.getRecipes(recipeName: 'Creamy Tomato Soup');
+  meals;
+  runApp(
+    StoreProvider(
+      store: store,
+      child: const MaterialApp(
+        home: OnBoardingPage(),
+      ),
+    ),
+  );
 }
-
-class RecipeApp extends StatelessWidget {
-  const RecipeApp({super.key});
-
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: OnBoardingPage(),
-    );
-  }
-}
-
