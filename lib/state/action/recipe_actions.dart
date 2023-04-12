@@ -1,10 +1,14 @@
-import 'package:async_redux/async_redux.dart';
 import 'package:recipe_app_flutter/api/model/api_service.dart';
 import 'package:recipe_app_flutter/api/model/meals.dart';
+import 'package:recipe_app_flutter/state/action/actions.dart';
 import 'package:recipe_app_flutter/state/app_state.dart';
 
 /// Getting of meals from the api
-class GetRecipeAction extends ReduxAction<AppState> {
+class GetRecipeAction extends LoadingAction {
+  static const key = 'get-recipe-action';
+
+  GetRecipeAction() : super(actionKey: key);
+
   @override
   Future<AppState> reduce() async {
     //TODO: Modify later for adding recipes using add recipe

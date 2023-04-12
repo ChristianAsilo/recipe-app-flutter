@@ -21,7 +21,7 @@ class OnBoardingPage extends StatelessWidget {
             ],
           ),
           image: DecorationImage(
-            image: const AssetImage('assets/images/onboarding/onboarding.jpeg'),
+            image: const AssetImage(onBoardingImageLabel),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(Colors.black12.withOpacity(0.3), BlendMode.darken),
           ),
@@ -51,8 +51,6 @@ class OnBoardingPage extends StatelessWidget {
                     style: RecipeAppTheme.darkTextTheme.displaySmall,
                   ),
                   const VerticalSpace(height: 30.0),
-
-                  //TODO: convert to reusable ElevatedButton later
                   ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: const MaterialStatePropertyAll(Color.fromRGBO(88, 47, 251, 1)),

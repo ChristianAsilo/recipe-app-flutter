@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app_flutter/utils/app_theme.dart';
+import 'package:recipe_app_flutter/utils/string_constants.dart';
 
 class CapsuleButton extends StatelessWidget {
   const CapsuleButton({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class CapsuleButton extends StatelessWidget {
                 ),
                 backgroundColor: const Color.fromRGBO(88, 47, 251, 1),
               ),
-              child: const Text('Ingredients'),
+              child: const Text(ingredientsLabel),
             ),
           ),
           Expanded(
@@ -36,7 +37,7 @@ class CapsuleButton extends StatelessWidget {
                     ),
                   ),
                   backgroundColor: Colors.white),
-              child: Text('Recipe', style: RecipeAppTheme.lightTextTheme.displaySmall),
+              child: Text(recipeLabel, style: RecipeAppTheme.lightTextTheme.displaySmall),
             ),
           ),
         ],
