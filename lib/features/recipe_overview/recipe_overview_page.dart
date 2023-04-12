@@ -5,6 +5,7 @@ import 'package:recipe_app_flutter/utils/spacing.dart';
 import 'package:recipe_app_flutter/utils/string_constants.dart';
 import 'package:recipe_app_flutter/widget/add_meal_buttom_sheet.dart';
 import 'package:recipe_app_flutter/widget/recipe_card.dart';
+import 'package:recipe_app_flutter/widget/recipe_details.dart';
 
 class RecipeOverviewPage extends StatefulWidget {
   const RecipeOverviewPage({required this.recipes, Key? key}) : super(key: key);
@@ -28,11 +29,11 @@ class _RecipeOverviewPageState extends State<RecipeOverviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(30.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const VerticalSpace(height: 50),
+            const VerticalSpace(height: 50.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -66,7 +67,7 @@ class _RecipeOverviewPageState extends State<RecipeOverviewPage> {
                     color: Colors.grey.withOpacity(0.2),
                   ),
                   borderRadius: const BorderRadius.all(
-                    Radius.circular(15),
+                    Radius.circular(15.0),
                   ),
                 ),
               ),
@@ -80,6 +81,12 @@ class _RecipeOverviewPageState extends State<RecipeOverviewPage> {
                   final meal = widget.recipes[index];
                   //Todo: add Function later
                   return GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RecipeDetailsPage(meal: meal),
+                      ),
+                    ),
                     child: RecipeCard(
                       image: meal.image,
                       mealName: meal.strMeal,
