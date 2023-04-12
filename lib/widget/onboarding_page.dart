@@ -12,6 +12,14 @@ class OnBoardingPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              Colors.black.withOpacity(0.6),
+              Colors.transparent,
+            ],
+          ),
           image: DecorationImage(
             image: const AssetImage('assets/images/onboarding/onboarding.jpeg'),
             fit: BoxFit.cover,
