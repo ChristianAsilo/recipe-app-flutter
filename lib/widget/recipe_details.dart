@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipe_app_flutter/api/model/meals.dart';
 import 'package:recipe_app_flutter/utils/app_theme.dart';
 import 'package:recipe_app_flutter/utils/spacing.dart';
+import 'package:recipe_app_flutter/utils/string_constants.dart';
 import 'package:recipe_app_flutter/widget/capsule_button.dart';
 
 class RecipeDetailsPage extends StatelessWidget {
@@ -86,9 +87,9 @@ class RecipeDetailsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Notes', style: RecipeAppTheme.lightTextTheme.titleLarge),
+                Text(notesLabel, style: RecipeAppTheme.lightTextTheme.titleLarge),
                 //TODO: Use TextField later
-                const Text('Notes here'),
+                const Text(notesHereLabel),
                 const VerticalSpace(height: 100.0),
                 const CapsuleButton(),
                 const VerticalSpace(height: 20.0),
