@@ -9,6 +9,8 @@ part 'app_state.g.dart';
 class AppState with _$AppState {
   factory AppState({
     @Default(<Meals>[]) List<Meals> meals,
+    //TODO: Add later
+    // @Default(null) RecipeDetails? recipeDetails,
   }) = _AppState;
 
   factory AppState.fromJson(Map<String, dynamic> json) => _$AppStateFromJson(json);

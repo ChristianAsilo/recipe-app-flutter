@@ -1,18 +1,30 @@
-import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app_flutter/state/action/recipe_actions.dart';
+import 'package:recipe_app_flutter/api/model/meals.dart';
 import 'package:recipe_app_flutter/utils/app_theme.dart';
 import 'package:recipe_app_flutter/utils/spacing.dart';
 import 'package:recipe_app_flutter/utils/string_constants.dart';
 import 'package:recipe_app_flutter/widget/add_meal_buttom_sheet.dart';
 
-class RecipeOverViewPage extends StatelessWidget {
-  const RecipeOverViewPage({Key? key}) : super(key: key);
+class RecipeOverviewPage extends StatefulWidget {
+  const RecipeOverviewPage({required this.recipes, Key? key}) : super(key: key);
+
+  final List<Meals> recipes;
+
+  @override
+  State<RecipeOverviewPage> createState() => _RecipeOverviewPageState();
+}
+
+class _RecipeOverviewPageState extends State<RecipeOverviewPage> {
+  final _textController = TextEditingController();
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    //TODO: will be removed later
-    StoreProvider.dispatch(context, GetRecipeAction());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(30),
@@ -43,6 +55,7 @@ class RecipeOverViewPage extends StatelessWidget {
             ),
             const VerticalSpace(height: 20.0),
             TextField(
+              controller: _textController,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.grey.withOpacity(0.2),
@@ -59,18 +72,31 @@ class RecipeOverViewPage extends StatelessWidget {
             ),
             const VerticalSpace(height: 20.0),
             Text(yourRecipesLabel, style: RecipeAppTheme.lightTextTheme.titleLarge),
-            //TODO: add Recipes later
+            //TODO: modify later for displaying add recipe
+            Expanded(
+              child: ListView.builder(
+                itemCount: widget.recipes.length,
+                itemBuilder: (buildContext, int index) {
+                  final meal = widget.recipes[index];
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(meal.strMeal, style: RecipeAppTheme.lightTextTheme.titleLarge),
+                      Text(meal.strCategory, style: RecipeAppTheme.lightTextTheme.titleMedium),
+                    ],
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-              isScrollControlled: true,
-              context: context,
-              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(25.0))),
-              builder: (BuildContext context) => const AddMealBottomSheet());
-        },
+        onPressed: () => showModalBottomSheet(
+            isScrollControlled: true,
+            context: context,
+            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(25.0))),
+            builder: (BuildContext context) => const AddMealBottomSheet()),
         backgroundColor: const Color.fromRGBO(88, 47, 251, 1),
         child: const Icon(
           Icons.add,

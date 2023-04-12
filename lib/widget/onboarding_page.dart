@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app_flutter/features/recipe_overview/recipe_overview_page.dart';
 import 'package:recipe_app_flutter/utils/app_theme.dart';
 import 'package:recipe_app_flutter/utils/spacing.dart';
 import 'package:recipe_app_flutter/utils/string_constants.dart';
-import 'package:recipe_app_flutter/widget/recipe_overview_page.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
@@ -58,7 +58,7 @@ class OnBoardingPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () => Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (_) => const RecipeOverViewPage())),
+                        context, MaterialPageRoute(builder: (_) => const RecipeOverviewPage(recipes: []))),
                     child: Text(getStartedLabel, style: RecipeAppTheme.darkTextTheme.titleMedium),
                   ),
                 ],
