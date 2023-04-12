@@ -1,7 +1,6 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app_flutter/api/model/api_service.dart';
 import 'package:recipe_app_flutter/state/app_state.dart';
 import 'package:recipe_app_flutter/widget/onboarding_page.dart';
 
@@ -10,8 +9,7 @@ Future<void> main() async {
     initialState: AppState(),
     actionObservers: kReleaseMode ? null : [ConsoleActionObserver<AppState>()],
   );
-  final meals = await ApiService().recipeApi.getRecipes(recipeName: 'Creamy Tomato Soup');
-  meals;
+
   runApp(
     StoreProvider(
       store: store,
