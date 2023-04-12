@@ -10,7 +10,7 @@ class RecipeApi {
   final ApiClient apiClient;
   final Uri baseUri;
 
-  Future<List<Meals>> getRecipes({required String recipeName}) async {
+  Future<List<Meals>> getRecipes({required List recipeName}) async {
     final queryParameters = <String, dynamic>{};
     queryParameters['s'] = recipeName;
 

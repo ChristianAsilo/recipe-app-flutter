@@ -1,4 +1,6 @@
+import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe_app_flutter/state/action/recipe_actions.dart';
 import 'package:recipe_app_flutter/utils/app_theme.dart';
 import 'package:recipe_app_flutter/utils/spacing.dart';
 import 'package:recipe_app_flutter/utils/string_constants.dart';
@@ -9,6 +11,8 @@ class RecipeOverViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: will be removed later
+    StoreProvider.dispatch(context, GetRecipeAction());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(30),
@@ -62,6 +66,7 @@ class RecipeOverViewPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(25.0))),
               builder: (BuildContext context) => const AddMealBottomSheet());
