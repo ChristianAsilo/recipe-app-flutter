@@ -10,12 +10,13 @@ class RecipeApi {
   final ApiClient apiClient;
   final Uri baseUri;
 
-  Future<List<Meals>> getRecipes({required List recipeName}) async {
+  Future<Meals> getRecipe({required String recipeName}) async {
     final queryParameters = <String, dynamic>{};
     queryParameters['s'] = recipeName;
 
     final uri = baseUri.replace(queryParameters: queryParameters);
     final response = await apiClient.dio.getUri(uri);
-    return (response.data['meals'] as List).map((json) => Meals.fromJson(json)).toList();
+    final mealsJson = response.data['meals'] as List;
+    return Meals.fromJson(mealsJson.first);
   }
 }
