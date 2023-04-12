@@ -9,6 +9,7 @@ class Meals with _$Meals {
   factory Meals({
     @JsonKey(name: 'strMeal') required String strMeal,
     @JsonKey(name: 'strCategory') required String strCategory,
+    @JsonKey(name: 'strMealThumb') required String image,
   }) = _Meals;
 
   factory Meals.fromJson(Map<String, dynamic> json) => _$MealsFromJson(json);

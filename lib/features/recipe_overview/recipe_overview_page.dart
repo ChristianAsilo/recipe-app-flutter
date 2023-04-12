@@ -4,6 +4,7 @@ import 'package:recipe_app_flutter/utils/app_theme.dart';
 import 'package:recipe_app_flutter/utils/spacing.dart';
 import 'package:recipe_app_flutter/utils/string_constants.dart';
 import 'package:recipe_app_flutter/widget/add_meal_buttom_sheet.dart';
+import 'package:recipe_app_flutter/widget/recipe_card.dart';
 
 class RecipeOverviewPage extends StatefulWidget {
   const RecipeOverviewPage({required this.recipes, Key? key}) : super(key: key);
@@ -72,18 +73,18 @@ class _RecipeOverviewPageState extends State<RecipeOverviewPage> {
             ),
             const VerticalSpace(height: 20.0),
             Text(yourRecipesLabel, style: RecipeAppTheme.lightTextTheme.titleLarge),
-            //TODO: modify later for displaying add recipe
             Expanded(
               child: ListView.builder(
                 itemCount: widget.recipes.length,
                 itemBuilder: (buildContext, int index) {
                   final meal = widget.recipes[index];
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(meal.strMeal, style: RecipeAppTheme.lightTextTheme.titleLarge),
-                      Text(meal.strCategory, style: RecipeAppTheme.lightTextTheme.titleMedium),
-                    ],
+                  //Todo: add Function later
+                  return GestureDetector(
+                    child: RecipeCard(
+                      image: meal.image,
+                      mealName: meal.strMeal,
+                      category: meal.strCategory,
+                    ),
                   );
                 },
               ),

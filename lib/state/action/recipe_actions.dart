@@ -9,13 +9,25 @@ class GetRecipeAction extends ReduxAction<AppState> {
   Future<AppState> reduce() async {
     //TODO: Modify later for adding recipes using add recipe
     final recipeNames = [
-      'French Onion Soup',
-      'Creamy Tomato Soup',
-      'Tonkatsu pork',
+      'Sushi',
+      'Fettuccine Alfredo',
+      'Ratatouille',
       'French Omelette',
       'Jamaican Beef Patties',
-      'Tonkatsu pork',
+      'Mince Pies',
+      'Poutine',
+      'Chicken Karaage',
+      'Creamy Tomato Soup',
+      'Chicken Congee',
+      'Beef Wellington',
+      'Big Mac',
+      'Beef Rendang',
+      'French Onion Soup',
+      'Nasi lemak',
+      'Pancakes',
       'Shawarma',
+      'Wontons',
+      'Tonkatsu pork',
     ];
     final recipes = <Meals>[];
 
